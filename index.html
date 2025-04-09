@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Legal e Aleatória</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #3b5998;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #ff6347;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+            background-color: #4CAF50;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bem-vindo à Página Aleatória!</h1>
+    <div class="content" id="content">
+        <!-- Os quadrados vão aparecer aqui -->
+    </div>
+    <button onclick="generateBoxes()">Gerar Quadrados Aleatórios</button>
+
+    <script>
+        function generateBoxes() {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '';  // Limpa os itens anteriores
+
+            const boxCount = Math.floor(Math.random() * 10) + 5;  // Cria entre 5 e 15 quadrados
+            for (let i = 0; i < boxCount; i++) {
+                const box = document.createElement('div');
+                box.classList.add('box');
+                box.textContent = Math.floor(Math.random() * 100);  // Número aleatório
+                contentDiv.appendChild(box);
+            }
+        }
+    </script>
+
+</body>
+</html>
